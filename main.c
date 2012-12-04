@@ -4,7 +4,7 @@ int main()
 {
     static unsigned char passwd[] = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
     static unsigned char salt[] =
-        { 'f', 'o', 'o', '@', 'e', 'x', 'a', 'm', 'p', 'l', 'e', '.', 'o', 'r', 'g' };
+        "identity.mozilla.com/gombot/v1/derivation:foo@example.org";
     static unsigned char saltAuth[] =
         { 'i', 'd', 'e', 'n', 't', 'i', 't', 'y', '.', 'm', 'o', 'z', 'i', 'l', 'l', 'a', '.', 'c', 'o', 'm', '/', 'g', 'o', 'm', 'b', 'o', 't', '/', 'v', '1', '/', 'a', 'u', 't', 'h', 'e', 'n', 't', 'i', 'c', 'a', 't', 'i', 'o', 'n',  };
     static unsigned char saltCrypt[] =
