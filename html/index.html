@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+hi
+<script src="sjcl.js"></script>
+<script src="main.js"></script>
+<script>
+var d = new Date();
+var bits = sjcl.misc.pbkdf2("password", sjcl.codec.utf8String.toBits("identity.mozilla.com/gombot/v1/derivation:foo@example.org"), 250000, 32*8);
+var authBits = sjcl.misc.pbkdf2(bits, sjcl.codec.utf8String.toBits("identity.mozilla.com/gombot/v1/authentication"), 1, 32*8);
+var cryptBits = sjcl.misc.pbkdf2(bits, sjcl.codec.utf8String.toBits("identity.mozilla.com/gombot/v1/encryption"), 1, 32*8);
+
+console.log("how long: " + (new Date() - d) / 1000 + "s");
+console.log(sjcl.codec.hex.fromBits(authBits));
+console.log(sjcl.codec.hex.fromBits(cryptBits));
+
+</script>
+</body>
+</html>
