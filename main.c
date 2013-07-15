@@ -1,6 +1,7 @@
-#include "sha256.h"
 #include <string.h>
 #include <stdio.h>
+
+#include "sha256.h"
 
 int main()
 {
@@ -17,6 +18,12 @@ int main()
     s_PBKDF2_SHA256(passwd, strlen(passwd), salt, strlen(salt), 250000, dkey, sizeof(dkey));
     s_PBKDF2_SHA256(dkey, sizeof(dkey), saltAuth, strlen(saltAuth), 1, akey, sizeof(akey));
     s_PBKDF2_SHA256(dkey, sizeof(dkey), saltCrypt, strlen(saltCrypt), 1, ckey, sizeof(ckey));
+
+    printf("dhKey: ");
+    for (i=0; i<sizeof(dkey); i++) {
+        printf("%02x", dkey[i]);
+    }
+    printf("\n");
 
     printf("authKey: ");
     for (i=0; i<sizeof(akey); i++) {
